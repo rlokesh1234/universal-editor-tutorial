@@ -11,7 +11,6 @@ export default function decorate(block) {
   const slides = rows.slice(4);
 
   block.innerHTML = '';
-
   block.classList.add(`carousel-${variant}`);
 
   const wrapper = document.createElement('div');
@@ -38,10 +37,35 @@ export default function decorate(block) {
   const dotsContainer = document.createElement('div');
   dotsContainer.className = 'carousel-dots';
 
+  let currentIndex = 0;
+  let autoplayTimer;
+
+  function getSlidesPerView() {
+    return window.innerWidth <= 768
+      ? slidesMobile
+      : slidesDesktop;
+  }
+
+  function updateDots() {
+    dotsContainer.querySelectorAll('.carousel-dot')
+      .forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+  }
+
+  function updateCarousel() {
+    const slidesPerView = getSlidesPerView();
+
+    track.style.transform = `translateX(-${(100 / slidesPerView) * currentIndex}%)`;
+
+    updateDots();
+  }
+
   slides.forEach((_, index) => {
     const dot = document.createElement('button');
 
     dot.className = 'carousel-dot';
+    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
 
     dot.addEventListener('click', () => {
       currentIndex = index;
@@ -58,56 +82,23 @@ export default function decorate(block) {
 
   block.append(wrapper);
 
-  let currentIndex = 0;
-  let autoplayTimer;
-
-  function getSlidesPerView() {
-    if (window.innerWidth <= 768) {
-      return slidesMobile;
-    }
-
-    return slidesDesktop;
-  }
-
-  function updateDots() {
-    dotsContainer.querySelectorAll('.carousel-dot')
-      .forEach((dot, index) => {
-        dot.classList.toggle(
-          'active',
-          index === currentIndex,
-        );
-      });
-  }
-
-  function updateCarousel() {
-    const slidesPerView = getSlidesPerView();
-
-    track.style.transform =
-      `translateX(-${(100 / slidesPerView) * currentIndex}%)`;
-
-    updateDots();
-  }
-
   prevBtn.addEventListener('click', () => {
-    currentIndex =
-      currentIndex === 0
-        ? slides.length - 1
-        : currentIndex - 1;
+    currentIndex = currentIndex === 0
+      ? slides.length - 1
+      : currentIndex - 1;
 
     updateCarousel();
   });
 
   nextBtn.addEventListener('click', () => {
-    currentIndex =
-      currentIndex === slides.length - 1
-        ? 0
-        : currentIndex + 1;
+    currentIndex = currentIndex === slides.length - 1
+      ? 0
+      : currentIndex + 1;
 
     updateCarousel();
   });
 
   // Swipe Support
-
   let startX = 0;
 
   track.addEventListener('touchstart', (event) => {
@@ -127,7 +118,6 @@ export default function decorate(block) {
   });
 
   // Keyboard Support
-
   wrapper.tabIndex = 0;
 
   wrapper.addEventListener('keydown', (event) => {
@@ -141,7 +131,6 @@ export default function decorate(block) {
   });
 
   // Autoplay
-
   if (autoplay) {
     autoplayTimer = setInterval(() => {
       nextBtn.click();
