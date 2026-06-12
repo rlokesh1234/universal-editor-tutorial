@@ -57,7 +57,7 @@
   transform: scale(1.2);
 }
 
-@media (max-width: 768px) {
+@media (width<= 768px) {
   .carousel-prev,
   .carousel-next {
     width: 36px;
