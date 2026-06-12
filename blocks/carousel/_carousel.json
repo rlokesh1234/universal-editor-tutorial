@@ -73,34 +73,6 @@
                 "name":"autoplay",
                 "label":"Autoplay",
                 "value":false
-            },
-            {
-                "component":"text",
-                "valueType":"number",
-                "name":"autoplaySpeed",
-                "label":"Autoplay Speed",
-                "value":5000
-            },
-            {
-                "component":"text",
-                "valueType":"boolean",
-                "name":"loop",
-                "label":"Loop",
-                "value":false
-            },
-            {
-                "component":"text",
-                "valueType":"boolean",
-                "name":"showArrows",
-                "label":"Show Arrows",
-                "value":false
-            },
-            {
-                "component":"text",
-                "valueType":"boolean",
-                "name":"showDots",
-                "label":"Show Dots",
-                "value":false
             }
         ]
     },
@@ -113,13 +85,6 @@
             "name":"image",
             "label":"Image",
             "multi":false
-        },
-        {
-            "component":"text",
-            "valueType":"string",
-            "name":"altText",
-            "label":"Alt Label",
-            "value": ""
         },
         {
             "component":"text",
@@ -159,20 +124,6 @@
             "name":"description",
             "label":"Description",
             "value": ""
-        },
-        {
-            "component":"text",
-            "valueType":"string",
-            "name":"ctaText",
-            "label":"Cta Text",
-            "value":""
-        },
-        {
-            "component":"text",
-            "valueType":"string",
-            "name":"ctaLink",
-            "label":"Cta Link",
-            "value":""
         }
     ]
     }
