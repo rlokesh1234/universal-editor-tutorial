@@ -161,6 +161,149 @@
     ]
   },
   {
+    "id": "carousel",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "variant",
+        "label": "Variant",
+        "value": "standard",
+        "options": [
+          {
+            "name": "Standard",
+            "value": "standard"
+          },
+          {
+            "name": "Featured",
+            "value": "featured"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "slidesDesktop",
+        "label": "Slides Desktop",
+        "value": 1
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "slidesMobile",
+        "label": "Slides Mobile",
+        "value": 1
+      },
+      {
+        "component": "text",
+        "valueType": "boolean",
+        "name": "autoplay",
+        "label": "Autoplay",
+        "value": false
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "autoplaySpeed",
+        "label": "Autoplay Speed",
+        "value": 5000
+      },
+      {
+        "component": "text",
+        "valueType": "boolean",
+        "name": "loop",
+        "label": "Loop",
+        "value": false
+      },
+      {
+        "component": "text",
+        "valueType": "boolean",
+        "name": "showArrows",
+        "label": "Show Arrows",
+        "value": false
+      },
+      {
+        "component": "text",
+        "valueType": "boolean",
+        "name": "showDots",
+        "label": "Show Dots",
+        "value": false
+      }
+    ]
+  },
+  {
+    "id": "slide",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "altText",
+        "label": "Alt Label",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": ""
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "titleTag",
+        "label": "Title Tag",
+        "value": "h3",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaText",
+        "label": "Cta Text",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaLink",
+        "label": "Cta Link",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "columns",
     "fields": [
       {
